@@ -1,60 +1,74 @@
 ---
-title: "Easy Task"
+title: "Task 1"
 author: "Sanat Kumar Gupta"
 output: html_document
-date: "2025-03-17"
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Load Required Libraries
 ```{r}
-# Load the package
-library(swephR)
+library(VedicDateTime)
 library(lubridate)
 library(dplyr)
 ```
-## Load a Naturally Occurring Time Series
-used **historical date data** as an example time series.
-```{r}
-date_data <- data.frame(
-  datetime = seq(ymd_hms("2025-01-01 00:00:00"), by = "1 day", length.out = 10)
-)
-head(date_data)
-```
-## Calculate Tithi, Vaara, and Nakshatra
-We define functions to compute these parameters using **Swiss Ephemeris**.
 
-### Compute Vaara (Day of the Week)
+## Generate a Sample Time Series
+
 ```{r}
-compute_vaara <- function(datetime) {
-  weekdays(datetime)
-}
-date_data$vaara <- sapply(date_data$datetime, compute_vaara)
+set.seed(42)
+dates <- seq(ymd("2024-01-01"), ymd("2024-01-10"), by = "days")
+temperatures <- runif(length(dates), min = 10, max = 35)  # Random temperatures in °C
+temperature_data <- data.frame(Date = dates, Temperature = temperatures)
 ```
 
-### Compute Tithi (Lunar Day)
+## Compute Vaara, Tithi, and Nakshatra
+Define functions to compute these values for each date.
+
 ```{r}
-compute_tithi <- function(datetime) {
-  jd <- swe_julday(year(datetime), month(datetime), day(datetime), hour(datetime), SE$GREG_CAL)
-  sun_long <- swe_calc_ut(jd, SE$SUN, SE$FLG_SWIEPH)$xx[1]
-  moon_long <- swe_calc_ut(jd, SE$MOON, SE$FLG_SWIEPH)$xx[1]
-  tithi <- floor(((moon_long - sun_long) %% 360) / 12) + 1
-  return(tithi)
+compute_vaara <- function(year, month, day) {
+  jd <- gregorian_to_jd(year, month, day)
+  return(get_vaara_name(jd))
 }
-date_data$tithi <- sapply(date_data$datetime, compute_tithi)
+
+compute_tithi <- function(year, month, day, place) {
+  jd <- gregorian_to_jd(year, month, day)
+  return(get_tithi_name(jd, place))
+}
+
+compute_nakshatra <- function(year, month, day, place) {
+  jd <- gregorian_to_jd(year, month, day)
+  return(get_nakshatra_name(jd, place))
+}
 ```
 
-### Compute Nakshatra (Lunar Mansion)
+Set the location parameters (latitude, longitude, timezone) for calculations.
+
 ```{r}
-compute_nakshatra <- function(datetime) {
-  jd <- swe_julday(year(datetime), month(datetime), day(datetime), hour(datetime), SE$GREG_CAL)
-  moon_long <- swe_calc_ut(jd, SE$MOON, SE$FLG_SWIEPH)$xx[1]
-  nakshatra <- floor(moon_long / 13.3333) + 1
-  return(nakshatra)
-}
-date_data$nakshatra <- sapply(date_data$datetime, compute_nakshatra)
+place <- c(15.34, 75.13, +5.5)  # Example: A location in India
+```
+
+
+```{r}
+temperature_data <- temperature_data %>%
+  mutate(
+    Year = year(Date),
+    Month = month(Date),
+    Day = day(Date),
+    Vaara = mapply(compute_vaara, Year, Month, Day),
+    Tithi = mapply(compute_tithi, Year, Month, Day, MoreArgs = list(place)),
+    Nakshatra = mapply(compute_nakshatra, Year, Month, Day, MoreArgs = list(place))
+  )
 ```
 
 ## Results
+Display the final dataset with Vedic time attributes.
+
 ```{r}
-date_data
+print(temperature_data)
 ```
-#### Conclusion
-This demonstrates how to calculate **Tithi, Vaara, and Nakshatra** for a naturally occurring time series using Swiss Ephemeris.
+
+## Conclusion
+This analysis demonstrates how Vedic time calculations can be integrated with natural time series data, providing insights into the alignment of temperature variations with traditional Hindu timekeeping.
