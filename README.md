@@ -79,23 +79,27 @@ These time periods are considered significant in Hindu astrology:
 - calc_rahu_kalam(sunrise, sunset, day)
   * `Start Time = Sunrise + Duration of the Day × Factor`
   * `Duration = Duration of the Day × 0.125`
-  * ![Screenshot 2025-03-20 at 12 08 24 AM](https://github.com/user-attachments/assets/0f70a583-62ec-4eaf-8c14-6110aa2d9bcb)
+
+   ![Screenshot 2025-03-20 at 12 08 24 AM](https://github.com/user-attachments/assets/0f70a583-62ec-4eaf-8c14-6110aa2d9bcb)
 
 - calc_gulika_kalam(sunrise, sunset, day)
   * `Start Time = Sunrise + Duration of the Day × Factor`
   * `Duration = Duration of the Day × 0.125`
-  * ![Screenshot 2025-03-20 at 12 09 47 AM](https://github.com/user-attachments/assets/b7c616b4-e5f6-44c5-a48e-3e845ef05816)
+    
+   ![Screenshot 2025-03-20 at 12 09 47 AM](https://github.com/user-attachments/assets/b7c616b4-e5f6-44c5-a48e-3e845ef05816)
 
 - calc_yama_gandam(sunrise, sunset, day)
   * `Start Time = Sunrise + Duration of the Day × Factor`
   * `Duration = Duration of the Day × 0.125`
-  * ![Screenshot 2025-03-20 at 12 10 47 AM](https://github.com/user-attachments/assets/7f60920a-e8db-4206-891f-2f62d1ce682b)
+    
+   ![Screenshot 2025-03-20 at 12 10 47 AM](https://github.com/user-attachments/assets/7f60920a-e8db-4206-891f-2f62d1ce682b)
 
 - calc_durmuhurtham(sunrise, duration_day)
   * `First Start Time = Sunrise + Duration of the Day × (10.4 / 12)`
   * `Second Start Time = Sunrise + Duration of the Day × (6.4 / 12)`
   * `Duration = Duration of the Day × (0.8 / 12)`
-  * ![Screenshot 2025-03-20 at 12 11 42 AM](https://github.com/user-attachments/assets/8ee190a8-ef44-4623-89c7-3c3bad683d61)
+    
+   ![Screenshot 2025-03-20 at 12 11 42 AM](https://github.com/user-attachments/assets/8ee190a8-ef44-4623-89c7-3c3bad683d61)
 
 
 
