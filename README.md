@@ -101,4 +101,26 @@ he Day × 0.125
 
 
 ## Task3
-Its with the name DummyPackage. It has two folders.
+DummyPackage is an R package designed for demonstration purposes, containing a set of dummy functions for string and numeric calculations. The package serves as a template for learning and experimenting with R package development, function structuring, and documentation.
+
+### Usage
+
+Load the package in R using:
+
+`library(DummyPackage)`
+
+### Addressing Timezone Note Issue
+
+During package development, a note was encountered related to timezone recognition. This issue couldn't be resolved by explicitly setting the timezone in a system-recognized format:
+
+`Sys.setenv(TZ = "Asia/Kolkata")`
+
+![Screenshot 2025-03-20 at 10 16 59 AM](https://github.com/user-attachments/assets/52b1aecb-3f97-4e9c-91ac-348bb56d80ab)
+
+### License
+
+This package is released under the MIT License.
+
+### Maintainer
+
+Sanat Kumar Gupta (sgupta_be22@thapar.edu)
