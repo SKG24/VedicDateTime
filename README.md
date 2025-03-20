@@ -85,7 +85,6 @@ These time periods are considered significant in Hindu astrology:
   * `Start Time = Sunrise + Duration of the Day × Factor`
   * `Duration = Duration of the Day × 0.125`
   * ![Screenshot 2025-03-20 at 12 09 47 AM](https://github.com/user-attachments/assets/b7c616b4-e5f6-44c5-a48e-3e845ef05816)
-he Day × 0.125
 
 - calc_yama_gandam(sunrise, sunset, day)
   * `Start Time = Sunrise + Duration of the Day × Factor`
