@@ -152,12 +152,6 @@ library(DummyPackage)
 }
 ```
 
-### Usage
-
-Load the package in R using:
-
-`library(DummyPackage)`
-
 ### Addressing Timezone Note Issue
 
 During package development, a note was encountered related to timezone recognition. This issue couldn't be resolved by explicitly setting the timezone in a system-recognized format:
