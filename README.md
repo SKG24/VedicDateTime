@@ -106,6 +106,52 @@ These time periods are considered significant in Hindu astrology:
 ## Task3
 DummyPackage is an R package designed for demonstration purposes, containing a set of dummy functions for string and numeric calculations. The package serves as a template for learning and experimenting with R package development, function structuring, and documentation.
 
+### Installation
+
+To use DummyPackage, you can install it from the source folder where it is located.
+```
+# Install the package from the local directory
+
+git clone https://github.com/SKG24/VedicDateTime.git
+
+install.packages("Dummy_Package", repos = NULL, type = "source")
+
+# Load the package
+
+library(DummyPackage)
+```
+## Functions
+- dummy_function1
+```
+  dummy_function1 <- function() {
+  return("Hello from function 1!")
+}
+```
+- dummy_function2
+```
+  dummy_function2 <- function(x) {
+  return(x^2)
+}
+```
+- dummy_function3
+```
+  dummy_function3 <- function(a, b) {
+  return(paste(a, b))
+}
+```
+- dummy_function4
+```
+  dummy_function4 <- function(n) {
+  return(seq(1, n))
+}
+```
+- dummy_function5
+```
+  dummy_function5 <- function(v) {
+  return(mean(v, na.rm = TRUE))
+}
+```
+
 ### Usage
 
 Load the package in R using:
